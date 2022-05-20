@@ -3,32 +3,9 @@ reference: https://www.makeareadme.com/
 reference: https://commonmark.org/
 -->
 
-<!--
-TODO: Intro
+# blog.while-true-do.io
 
-Thank you a lot for starting a new repository.
-
-We want to be very transparent and provide proper documentation to users of
-products, software and services. To ensure this, we have set up this repository.
-
-Before going any further, please ensure that you have read the Contribution
-Guidelines and you are willing to accept these.
-
-Please read each of the below sections and comments carefully and check each
-section. It may happen that a section, file or content does not apply to you:
-Please feel free to remove sections or mention, that there is nothing needed
-or keep the TODO there until it is done.
-
-Please also search for the terms REPO_NAME and REPO_DESCRIPTION and replace them
-with some useful text.
-
-Before releasing something, we also recommend to get in touch with the project
-owners for a review of your code and documentation.
--->
-
-# REPO_NAME
-
-REPO_DESCRIPTION
+ Code for the blogging service of [while-true-do.io.](https://while-true-do.io/).
 
 ## Motivation
 
@@ -110,8 +87,8 @@ Issues and Pull Requests are handled on a regular basis. Please be aware, that
 we may reach out to you, ask you to provide additional resources or want to
 discuss the issue a little, before planning it.
 
-- [Bugs and Feature Requests](https://github.com/whiletruedoio/REPO_NAME/issues)
-- [Pull Requests](https://github.com/whiletruedoio/REPO_NAME/pulls)
+- [Bugs and Feature Requests](https://github.com/whiletruedoio/blog.while-true-do.io/issues)
+- [Pull Requests](https://github.com/whiletruedoio/blog.while-true-do.io/pulls)
 
 ### Develop
 
@@ -140,7 +117,7 @@ Please update and maintain the CHANGELOG.md
 ### Test
 
 To ensure a high quality and functionality, we want to carefully test our
-software. 
+software.
 
 <!-- TODO: Test
 

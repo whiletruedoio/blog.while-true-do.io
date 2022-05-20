@@ -1,0 +1,26 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "blog-deployment"
+spec:
+  selector:
+    matchLabels:
+      component: "blog"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: "blog"
+    spec:
+      containers:
+        - name: "blog-web"
+          image: "docker.io/library/ghost:4.47.4"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 2368
+              name: "http"
+...
