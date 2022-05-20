@@ -4,9 +4,8 @@ reference: https://commonmark.org/
 -->
 
 [![Cirrus CI - Base Branch Build Status](https://img.shields.io/cirrus/github/whiletruedoio/blog.while-true-do.io?logo=Cirrus-ci)](https://cirrus-ci.com/github/whiletruedoio/blog.while-true-do.io)
-[![CodeFactor](https://www.codefactor.io/repository/github/whiletruedoio/container-template/badge)](https://www.codefactor.io/repository/github/whiletruedoio/blog.while-true-do.io)
-[![GitHub Tag (latest SemVer)](https://img.shields.io/github/v/tag/whiletruedoio/container-template?logo=GitHub&label=Release&sort=semver)](https://github.com/whiletruedoio/blog.while-true-do.io/releases)
-[![Docker Image Version](https://img.shields.io/docker/v/whiletruedoio/blog.while-true-do.io?logo=Docker&label=Release&sort=semver)](https://hub.docker.com/r/whiletruedoio/blog.while-true-do.io)
+[![CodeFactor](https://www.codefactor.io/repository/github/whiletruedoio/blog.while-true-do.io/badge)](https://www.codefactor.io/repository/github/whiletruedoio/blog.while-true-do.io)
+[![GitHub Tag (latest SemVer)](https://img.shields.io/github/v/tag/whiletruedoio/blog.while-true-do.io?logo=GitHub&label=Release&sort=semver)](https://github.com/whiletruedoio/blog.while-true-do.io/releases)
 [![GitHub issues](https://img.shields.io/github/issues/whiletruedoio/blog.while-true-do.io)](https://github.com/whiletruedoio/blog.while-true-do.io/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/whiletruedoio/blog.while-true-do.io)](https://github.com/whiletruedoio/blog.while-true-do.io/pulls)
 [![GitHub license](https://img.shields.io/github/license/whiletruedoio/blog.while-true-do.io)](https://github.com/whiletruedoio/blog.while-true-do.io/blob/main/LICENSE)
