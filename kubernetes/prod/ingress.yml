@@ -5,7 +5,7 @@ metadata:
   name: "blog-ingress"
 spec:
   rules:
-    - host: "blog.home.while-true-do.io"
+    - host: "blog.while-true-do.io"
       http:
         paths:
           - pathType: "Prefix"
