@@ -1,0 +1,17 @@
+---
+# kubernetes/base/pvc.yml
+
+apiVersion: "v1"
+kind: "PersistentVolumeClaim"
+metadata:
+  name: "blog-web-pvc"
+  labels:
+    app.kubernetes.io/name: "blog-web-pvc"
+    app.kubernetes.io/component: "web"
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10Gi"
+...

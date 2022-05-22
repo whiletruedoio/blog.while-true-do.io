@@ -1,0 +1,8 @@
+---
+# kubernetes/prod/namespace.yml
+
+apiVersion: "v1"
+kind: "Namespace"
+metadata:
+  name: "blog-prod-while-true-do-io"
+...

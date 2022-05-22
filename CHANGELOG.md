@@ -12,6 +12,11 @@ This file is the changelog of
 - Added: initial home, test and prod deployments
 - Added: kustomize customizations for deployments
 - Added: architecture diagram
+- Updated: architecture diagram
+- Added: persistent volume
+- Updated: labels and names
+- Added: documentation
+- Updated: directory structure
 
 ## [MAJOR.MINOR.PATCH-LABEL] - YYYYMMDD
 
