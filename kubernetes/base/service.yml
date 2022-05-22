@@ -1,13 +1,19 @@
 ---
+# kubernetes/base/service.yml
+
 apiVersion: "v1"
 kind: "Service"
 metadata:
-  name: "blog-service"
+  name: "blog-web-service"
+  labels:
+    app.kubernetes.io/name: "blog-web-service"
+    app.kubernetes.io/component: "web"
 spec:
   type: "ClusterIP"
   selector:
-    component: "blog"
+    app.kubernetes.io/component: "web"
   ports:
-    - port: 2368
-      targetPort: 2368
+    - protocol: "TCP"
+      port: 80
+      targetPort: "http"
 ...

@@ -1,0 +1,8 @@
+---
+# kubernetes/test/namespace.yml
+
+apiVersion: "v1"
+kind: "Namespace"
+metadata:
+  name: "blog-test-while-true-do-io"
+...

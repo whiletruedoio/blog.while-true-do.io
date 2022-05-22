@@ -16,25 +16,23 @@ reference: https://commonmark.org/
 
 ## Motivation
 
-<!-- TODO: Motivation
-
-This section describes the motivation to create the software.
-
-Why is this repository needed?
-Which problem is solved?
-Who may need it?
--->
+As a community project, we want to inform our users and publish knowledge. This
+can be done with a platform that allows contributors to publish new articles on
+a regular basis.
 
 ## Description
 
-<!-- TODO: Description
+The repository holds the deployment data for
+[blog.while-true-do.io](https://while-true-do.io/). The blog engine is based
+on the popular and simple [Ghost](https://ghost.org/) blogging platform.
 
-This section describes the software/code itself. Please describe the software
-thoroughly, so a user gets a good understanding what to expect, when using it.
+In addition, we will track new ideas and article progress in the
+[GitHub issues](https://github.com/whiletruedoio/blog.while-true-do.io/issues).
 
-Optional: Add subsections for features, screenshots, etc. and/or add files
-in docs/* (documents) or assets/* (pictures, images, diagrams).
--->
+## Architecture
+
+You can find a small architectural diagram of the blog engine in the
+[docs](./docs) directory.
 
 ## Usage
 
@@ -43,43 +41,80 @@ install and run the code on your machine, please check out this section.
 
 ### Requirements
 
-<!-- TODO: Requirements
+The deployment is done on Kubernetes. Therefore, you will need a Kubernetes
+instance running to apply the deployment. As a reference, you can have a look
+at
+[kube.while-true-do.io](https://github.com/whiletruedoio/kube.while-true-do.io).
 
-This section describes what one needs to run the code in production.
-
-What is needed beforehand?
-What are prerequisites to start with an installation?
-Are there any dependencies, that needs to be solved?
-
-Optional: Use and link a docs/REQUIREMENTS.md
--->
+For development purposes, you can also use
+[Minikube](https://minikube.sigs.k8s.io/docs/)
+or plain [k3s](https://k3s.io).
 
 ### Install
 
-<!-- TODO: Install
+The installation of the deployment is done with
+[kustomize](https://kustomize.io). Kustomize is baked into
+[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
-This section describes how to install the product to actually use it.
+For now, we are offering 3 different environments:
 
-How to install the content?
-Are there manual steps?
-Providing a step-by-step guide is recommended.
+#### Home
 
-Optional: Use and link a docs/INSTALL.md
--->
+The home environment is the default environment. It can be used for your
+personal home server, development or small environments.
+
+```bash
+# Deploy to the home environment
+$ kubectl apply -k kubernetes/home/
+```
+
+This will create:
+
+- a namespace "blog-home-while-true-do-io"
+- an ingress "blog.home.while-true-do.io"
+- the necessary services, deployments, configMap and persistent volumes
+
+#### Test
+
+The test environment is used for testing purposes. It is used in our testing
+area to learn about new features and try out new ideas.
+
+```bash
+# Deploy to the test environment
+$ kubectl apply -k kubernetes/test/
+```
+
+This will create:
+
+- a namespace "blog-test-while-true-do-io"
+- an ingress "blog.test.while-true-do.io"
+- the necessary services, deployments, configMap and persistent volumes
+
+#### Prod
+
+The production environment is used for the deployment of the blog. For now, it
+does not differ from other deployments, but is intended to facilitate certain
+scaling and HA features in the future.
+
+```bash
+# Deploy to the prod environment
+$ kubectl apply -k kubernetes/prod/
+```
+
+This will create:
+
+- a namespace "blog-prod-while-true-do-io"
+- an ingress "blog.while-true-do.io"
+- the necessary services, deployments, configMap and persistent volumes
 
 ### Documentation
 
-<!-- TODO: Documentation
+The deployment is based on the famous [Ghost](https://ghost.org/) blogging
+engine which is documented in the [Ghost](https://ghost.org/resources/)
+documentation.
 
-This section describes how to use or administrate the software.
-
-First steps after the installation?
-Important things the user/admin should know?
-Could you provide examples to use the code?
-Were to find additional documentation?
-
-Optional: Use and link docs/*.md files
--->
+The software is open source and can be found on
+[GitHub](https://github.com/TryGhost/Ghost).
 
 ## Contribute
 
@@ -99,16 +134,16 @@ discuss the issue a little, before planning it.
 
 ### Develop
 
-<!-- TODO: Develop
+In case you want to customize the deployment or help developing, you should copy
+one of the overlays and inspect each of the files. You need to adjust at least:
 
-This section describes how one can start to help developing the code.
+- the namespace.yml
+- the ingress.yml
+- the blog-web.env
 
-How to setup the development environment?
-Are there special requirements?
-Do you suggest / recommend something for developers?
-
-Optional: Use and link a docs/DEVELOP.md
--->
+You should also make yourself comfortable with the use of
+[MiniKube](https://minikube.sigs.k8s.io/docs/) and
+[Kustomize](https://github.com/kubernetes-sigs/kustomize).
 
 ### Changelog
 
@@ -116,25 +151,11 @@ We are maintaining a [changelog](CHANGELOG.md) for repositories. Normally, the
 developers will update the changelog, according to
 [keepachangelog.com](https://keepachangelog.com/).
 
-<!-- TODO: Changelog
-
-Please update and maintain the CHANGELOG.md
--->
-
 ### Test
 
 To ensure a high quality and functionality, we want to carefully test our
-software.
-
-<!-- TODO: Test
-
-Add your guideline, how to test.
-How to execute the tests locally?
-What is automatically done?
-
-Optional: Use and link a docs/TEST.md
-Optional: Provide additional test scripts and helpers in tests/
--->
+software. The provided code is automatically tested as described in the
+[.cirrus.yml](.cirrus.yml).
 
 ## License
 

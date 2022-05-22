@@ -1,8 +1,13 @@
 ---
+# kubernetes/home/ingress.yml
+
 apiVersion: "networking.k8s.io/v1"
 kind: "Ingress"
 metadata:
-  name: "blog-ingress"
+  name: "blog-web-ingress"
+  labels:
+    app.kubernetes.io/name: "blog-web-ingress"
+    app.kubernetes.io/component: "web"
 spec:
   rules:
     - host: "blog.home.while-true-do.io"
@@ -12,7 +17,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: "blog-service"
+                name: "blog-web-service"
                 port:
-                  number: 2368
+                  number: 80
 ...

@@ -1,26 +1,43 @@
 ---
+# kubernetes/base/deployment.yml
+
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
-  name: "blog-deployment"
+  name: "blog-web-deployment"
+  labels:
+    app.kubernetes.io/name: "blog-web-deployment"
+    app.kubernetes.io/component: "web"
 spec:
   selector:
     matchLabels:
-      component: "blog"
-  replicas: 1
+      app.kubernetes.io/component: "web"
   template:
     metadata:
       labels:
-        component: "blog"
+        app.kubernetes.io/component: "web"
     spec:
+      volumes:
+        - name: "blog-web-volume"
+          persistentVolumeClaim:
+            claimName: "blog-web-pvc"
       containers:
         - name: "blog-web"
-          image: "docker.io/library/ghost:4.47.4"
+          image: "docker.io/library/ghost"
           resources:
             limits:
               memory: "512Mi"
               cpu: "250m"
+          env:
+            - name: "url"
+              valueFrom:
+                configMapKeyRef:
+                  name: "blog-web-env"
+                  key: "url"
           ports:
             - containerPort: 2368
               name: "http"
+          volumeMounts:
+            - name: "blog-web-volume"
+              mountPath: "/var/lib/ghost/content"
 ...

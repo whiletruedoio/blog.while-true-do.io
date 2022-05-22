@@ -1,0 +1,30 @@
+---
+# kubernetes/test/kustomization.yml
+
+apiVersion: "kustomize.config.k8s.io/v1beta1"
+kind: "Kustomization"
+
+namespace: "blog-test-while-true-do-io"
+commonLabels:
+  app.kubernetes.io/part-of: "blog"
+
+configMapGenerator:
+  - name: "blog-web-env"
+    envs:
+      - "blog-web.env"
+
+bases:
+  - "../../base"
+
+resources:
+  - "namespace.yml"
+  - "ingress.yml"
+
+images:
+  - name: "docker.io/library/ghost"
+    newTag: "4-alpine"
+
+replicas:
+  - name: "blog-web-deployment"
+    count: 1
+...

@@ -19,4 +19,22 @@ lint_yaml_task:
     image: "docker.io/library/alpine:latest"
   install_script: "apk add --no-cache yamllint"
   lint_script: "yamllint ."
+
+kubeval_kubernetes_task:
+  name: "kubeval Kubernetes Files"
+  container:
+    image: "docker.io/cytopia/kubeval:latest"
+  test_script:
+    - "kubectl kustomize kubernetes/home/ | kubeval --ignore-missing-schemas"
+    - "kubectl kustomize kubernetes/test/ | kubeval --ignore-missing-schemas"
+    - "kubectl kustomize kubernetes/prod/ | kubeval --ignore-missing-schemas"
+
+trivy_kubernetes_task:
+  name: "trivy Kubernetes Files"
+  container:
+    image: "docker.io/aquasec/trivy:0.22.0"
+  scan_script: "trivy config
+                --severity CRITICAL
+                --exit-code 1
+                kubernetes/"
 ...

@@ -1,0 +1,8 @@
+---
+# kubernetes/home/namespace.yml
+
+apiVersion: "v1"
+kind: "Namespace"
+metadata:
+  name: "blog-home-while-true-do-io"
+...
