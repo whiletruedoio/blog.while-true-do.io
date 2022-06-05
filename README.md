@@ -65,7 +65,7 @@ personal home server, development or small environments.
 
 ```bash
 # Deploy to the home environment
-$ kubectl apply -k kubernetes/home/
+$ kubectl apply -k kubernetes/overlays/home/
 ```
 
 This will create:
@@ -81,7 +81,7 @@ area to learn about new features and try out new ideas.
 
 ```bash
 # Deploy to the test environment
-$ kubectl apply -k kubernetes/test/
+$ kubectl apply -k kubernetes/overlays/test/
 ```
 
 This will create:
@@ -98,7 +98,7 @@ scaling and HA features in the future.
 
 ```bash
 # Deploy to the prod environment
-$ kubectl apply -k kubernetes/prod/
+$ kubectl apply -k kubernetes/overlays/prod/
 ```
 
 This will create:
